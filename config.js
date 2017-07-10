@@ -1,4 +1,4 @@
-'use stict'
+'use strict'
 
 // Deps
 const Confidence = require('confidence')
@@ -10,10 +10,12 @@ const config = {
   port: process.env.APP_PORT || 1337,
   production: 'production',
   db: {
-    $filter: 'env',
-    $default: 'mongo://localhost:27017/mydb',
-    production: 'mongo://localhost:27017/prodDB'
+    host: 'localhost',
+    port: '27017',
+    collection: 'mydb',
+    adapter: 'demo'
   },
+  init: process.env.NODE_APP_INIT || false,
   jwtSecret: 'blabla-secret',
   morgan: process.env.MORGAN || 'dev',
   session: {

@@ -2,8 +2,9 @@
   "name": "server-auth",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/server.js",
   "scripts": {
+    "start": "node lib/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard --verbose | snazzy"
   },
@@ -24,8 +25,12 @@
     "express": "~4.15.3",
     "express-jwt": "~5.3.0",
     "express-session": "~1.15.3",
+    "immutable": "^3.8.1",
     "jsonwebtoken": "~7.4.1",
+    "mongoose": "^4.11.1",
     "morgan": "~1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "purdy": "~2.2.1"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
-'use stict'
+'use strict'
+
 // Deps
 const jwt = require('jsonwebtoken')
 const Config = require('../config').config
@@ -17,6 +18,10 @@ module.exports = function checkScopes (req, res, next) {
         return res.status(401).send({ success: false, message: 'Failed to authenticate token.' })
       } else {
         // if everything is good, save to request for use in other routes
+        const today = new Date()
+        const left = (decoded.expire - today.getTime()) / 1000
+        if (left <= 0) return res.status(401).send({ success: false, message: 'Failed to authenticate token.' })
+        decoded.expire = left
         req.decoded = decoded
         next()
       }
