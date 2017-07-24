@@ -9,8 +9,14 @@ const config = {
   env: process.env.NODE_ENV || 'development',
   port: process.env.APP_PORT || 1337,
   production: 'production',
+  logConf: true,
   db: {
-    host: 'localhost',
+    host: {
+      $filter: 'env',
+      $default: 'localhost',
+      staging: 'db',
+      production: 'db'
+    },
     port: '27017',
     collection: 'mydb',
     adapter: 'demo'

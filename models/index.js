@@ -6,14 +6,15 @@ require('./user')
 const connectionString = `mongodb://${Config.db.host}:${Config.db.port}/${Config.db.collection}`
 
 if (Config.init) {
-  mongoose.connect(connectionString, { useMongoClient: true }).bind({})
+  const _ = {};
+  mongoose.connect(connectionString, { useMongoClient: true })
   .then(db => {
-    this.db = db
+    _.db = db
     return db.model('User').findOne({ username: 'admin' })
   })
   .then(user => {
     if (!user) {
-      return this.db.model('User').create({
+      return _.db.model('User').create({
         username: 'admin',
         password: Config.init,
         scopes: { admin: true }

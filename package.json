@@ -1,12 +1,13 @@
 {
   "name": "server-auth",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "lib/server.js",
   "scripts": {
     "start": "node lib/server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard --verbose | snazzy"
+    "lint": "standard --verbose | snazzy",
+    "nps": "nps"
   },
   "repository": {
     "type": "git",
@@ -22,18 +23,20 @@
     "body-parser": "~1.17.2",
     "confidence": "~3.0.2",
     "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.6",
     "express": "~4.15.3",
     "express-jwt": "~5.3.0",
     "express-session": "~1.15.3",
-    "immutable": "^3.8.1",
+    "immutable": "~3.8.1",
     "jsonwebtoken": "~7.4.1",
-    "mongoose": "^4.11.1",
+    "mongoose": "~4.11.1",
     "morgan": "~1.8.2",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
+    "passport": "~0.3.2",
+    "passport-local": "~1.0.0",
     "purdy": "~2.2.1"
   },
   "devDependencies": {
+    "p-s": "~4.1.0",
     "snazzy": "~7.0.0",
     "standard": "~10.0.2"
   }
